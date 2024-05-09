@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: ReplicaSet
+metadata:
+  name: my-rs
+spec: 
+  replicas: 3
+  selector:
+    matchExpressions:
+      - key: "app"
+        operator: "In"
+        values: ["xyz-app", "cbz-app"]
+  template: 
+    metadata: 
+      labels:
+        app: cbz-app 
+    spec:
+      containers:
+      - name: my-pod-container 
+        image: nginx
+        ports:
+          - name: http
+            protocol: TCP
+            containerPort: 80 

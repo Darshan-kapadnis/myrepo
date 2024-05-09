@@ -1,0 +1,108 @@
+aws eks update-kubeconfig --region us-east-1 --name my-cluster 
+  
+kubectl cluster-info 
+
+kubectl get nodes 
+
+kubectl get nodes -o wide 
+
+kubectl run my-first-pod --image=nginx
+
+kubectl get pods 
+
+kubectl get -o wide pods  
+
+kubectl describe pod my-first-pod 
+
+kubectl run my-pod --port=80 --image=nginx 
+
+kubectl logs my-pod 
+
+kubectl logs -c <container_name> <pod_name>
+
+kubectl explain pods  
+-------------------------------------------------
+kubectl expose pod my-first-pod --port=80 --type=clusterIP 
+
+kubectl get service 
+
+kubectl expose pod my-first-pod --port=80 --target-port=80 --type=NodePor 
+
+kubectl expose pod my-pod --name my-pod-lb --type=LoadBalancer --port=80 --target-port=80 
+
+kubectl apply -f pod.yaml 
+
+kubectl exec -it my-pod -c my-pod-container /bin/bash 
+
+kubectl api-resources
+ 
+kubectl delete pod my-pod 
+
+---------------------------------------------------------
+
+kubectl get rc 
+
+kubectl get pods 
+
+kubectl get -o wide pods 
+
+kubectl delete rc 
+
+
+kubectl get namespaces 
+
+kubectl get ns
+
+kubectl create ns dev 
+
+kubectl describe namespace <namespace-name>
+
+kubectl delete namespace <namespace-name>
+
+kubectl get -n dev all
+
+kubectl get pods -n dev 
+
+kubectl run my-pod --image=nginx -n dev 
+
+kubectl apply -f <manifest-file.yaml> -n <namespace-name>
+
+-------------------------------------------------------------------------
+
+kubectl get deploy 
+
+kubectl get pods 
+
+kubectl get rs 
+
+kubectl edit rs my-rs 
+
+kubectl scale rs --replicas=0 my-rs 
+
+kubectl edit deploy my-deployment 
+
+kubectl api-resources  
+
+kubectl scale statefulset my-ss --replicas 2 
+
+--------------------------------------------------------------------
+
+kubectl get configmap 
+
+kubectl get cm 
+
+kubectl describe configmap my-vars 
+
+kubectl exec -it my-ss-0 -- bash 
+
+env 
+
+------------------------------------------------- 
+
+echo -n "Redhat" | base64 
+
+kubectl get secret 
+
+kubectl describe secret my-sec 
+
+
